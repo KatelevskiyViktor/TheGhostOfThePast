@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/satellit_forum/Classes/AbstractModel.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/Classes/GenSupLib.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/Classes/SupLibInput.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/Classes/SupLibReg.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/Classes/View.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/Controllers/NewPassController.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/Controllers/RegController.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/Models/InputModel.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/Models/MessModel.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/Models/NewPassModel.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/Models/RegModel.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/Models/ThemesModel.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/Views/ViewNewPass.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/Views/ViewNewPassCode.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/blocks/db.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/blocks/hendler_ip.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/blocks/ie_hendler.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/blocks/page_nav_mess.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/blocks/page_nav_theme.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/css/reset.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/css/style.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/satellit_forum/index.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/views/error.php" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

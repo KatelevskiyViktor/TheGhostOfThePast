@@ -51,7 +51,7 @@ class ThemesModel
 
             return $res;
         }
-
+//Просто комент
         public function actRepTheme($titleTheme){!!!!!!!!!!!!!!!!!!!!!!!!!!Закончить с ошибками добавления новой темы
                 $res = $this->getAnyDataOnParam('SELECT id FROM themes WHERE name_theme = :titleTheme',
                     [':titleTheme' => $titleTheme]);

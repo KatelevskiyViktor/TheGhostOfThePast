@@ -39,7 +39,7 @@ class ThemesModel
                                            ThemesModel.php не смог получить данные из базы.');
 
             return $res;
-        
+
         public function addMessNewTheme($idNewTheme, $message, $login, $avatar){
                 $res = $this->addUpdDel("INSERT INTO messages(themeID, message, author, date, avatar)
                                                   VALUES(:idNewTheme, :message, :login, NOW(), :avatar)",

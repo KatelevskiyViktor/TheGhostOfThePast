@@ -34,16 +34,16 @@
         <entry file="file://$PROJECT_DIR$/satellit_forum/Models/ThemesModel.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.2384">
-              <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding>
-                <marker date="1451342527108" expanded="true" signature="135:162" placeholder="SELECT COUNT..themes..." />
-                <marker date="1451342527108" expanded="true" signature="136:162" placeholder="SELECT COUNT..themes..." />
-                <marker date="1451342527108" expanded="true" signature="464:515" placeholder="SELECT * FRO..themes..." />
-                <marker date="1451342527108" expanded="true" signature="826:1002" placeholder="INSERT INTO ..." />
-                <marker date="1451342527108" expanded="true" signature="893:1002" placeholder="INSERT INTO ..." />
-                <marker date="1451342527108" expanded="true" signature="1393:1439" placeholder="SELECT id FR..themes..." />
-                <marker date="1451342527108" expanded="true" signature="1779:1943" placeholder="INSERT INTO ..." />
-                <marker date="1451342527108" expanded="true" signature="2473:2525" placeholder="SELECT id FR..themes..." />
+                <marker date="1451347098681" expanded="true" signature="135:162" placeholder="SELECT COUNT..themes..." />
+                <marker date="1451347098681" expanded="true" signature="136:162" placeholder="SELECT COUNT..themes..." />
+                <marker date="1451347098681" expanded="true" signature="464:515" placeholder="SELECT * FRO..themes..." />
+                <marker date="1451347098681" expanded="true" signature="826:1002" placeholder="INSERT INTO ..." />
+                <marker date="1451347098681" expanded="true" signature="893:1002" placeholder="INSERT INTO ..." />
+                <marker date="1451347098681" expanded="true" signature="1393:1439" placeholder="SELECT id FR..themes..." />
+                <marker date="1451347098681" expanded="true" signature="1771:1935" placeholder="INSERT INTO ..." />
+                <marker date="1451347098681" expanded="true" signature="2465:2517" placeholder="SELECT id FR..themes..." />
               </folding>
             </state>
           </provider>
@@ -1131,16 +1131,16 @@
     <entry file="file://$PROJECT_DIR$/satellit_forum/Models/ThemesModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2384">
-          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
-            <marker date="1451342527108" expanded="true" signature="135:162" placeholder="SELECT COUNT..themes..." />
-            <marker date="1451342527108" expanded="true" signature="136:162" placeholder="SELECT COUNT..themes..." />
-            <marker date="1451342527108" expanded="true" signature="464:515" placeholder="SELECT * FRO..themes..." />
-            <marker date="1451342527108" expanded="true" signature="826:1002" placeholder="INSERT INTO ..." />
-            <marker date="1451342527108" expanded="true" signature="893:1002" placeholder="INSERT INTO ..." />
-            <marker date="1451342527108" expanded="true" signature="1393:1439" placeholder="SELECT id FR..themes..." />
-            <marker date="1451342527108" expanded="true" signature="1779:1943" placeholder="INSERT INTO ..." />
-            <marker date="1451342527108" expanded="true" signature="2473:2525" placeholder="SELECT id FR..themes..." />
+            <marker date="1451347098681" expanded="true" signature="135:162" placeholder="SELECT COUNT..themes..." />
+            <marker date="1451347098681" expanded="true" signature="136:162" placeholder="SELECT COUNT..themes..." />
+            <marker date="1451347098681" expanded="true" signature="464:515" placeholder="SELECT * FRO..themes..." />
+            <marker date="1451347098681" expanded="true" signature="826:1002" placeholder="INSERT INTO ..." />
+            <marker date="1451347098681" expanded="true" signature="893:1002" placeholder="INSERT INTO ..." />
+            <marker date="1451347098681" expanded="true" signature="1393:1439" placeholder="SELECT id FR..themes..." />
+            <marker date="1451347098681" expanded="true" signature="1771:1935" placeholder="INSERT INTO ..." />
+            <marker date="1451347098681" expanded="true" signature="2465:2517" placeholder="SELECT id FR..themes..." />
           </folding>
         </state>
       </provider>

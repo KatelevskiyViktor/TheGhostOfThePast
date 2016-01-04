@@ -1,5 +1,6 @@
 <?php
-class GenSupLib{
+class GenSupLib
+    extends SupLibAllErr{
 
     protected function checkPass($fPass, $sPass){
 

@@ -40,7 +40,7 @@
             echo "<p><label style='color:#900000;'>Просмотров:</label>" . $this->data['varHero'][0]['views'] . "</p>
                         </div>";
         }else{
-            $objForErrHero = new ForError();
+            $objForErrHero = new ForErrDBThemesModel();
             echo $objForErrHero->getErrForHeroes();
 
         }

@@ -3,7 +3,9 @@ class InputModel
     extends AbstractModel{
 
         public function actDel(){
-            return $this->getAnyData("DELETE FROM ip WHERE UNIX_TIMESTAMP()-UNIX_TIMESTAMP(date)>900");
+			$res = $this->addUpdDel("DELETE FROM ip WHERE UNIX_TIMESTAMP()-UNIX_TIMESTAMP(date)>900");
+            if(!$res)throw new ErrDBInputModel('Ошибка! Метод actDel в
+                                           InputModel не смог получить данные из базы.') ;
         }
 
         public function getSumErrID($ip){

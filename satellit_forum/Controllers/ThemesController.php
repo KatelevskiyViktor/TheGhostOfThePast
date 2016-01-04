@@ -9,55 +9,55 @@ class ThemesController
 
         //Проверка пользовательских данных и создание свойств для вывода инфо:
         $varPage = intval($_GET['page']);
-
+        try {
             //Добавление новой темы + работа с данными таблицы сообщений:
             if (!empty($_POST['text']) && !empty($_POST['titleTheme']) && strlen($_POST['titleTheme']) < 120) {
-                try {
-                    //Проверка на повторяемость темы:
-                    $idTheme = $objThemeModel->actRepTheme($_POST['titleTheme']);
 
-                    if (!empty($idTheme)) {
-                        $viewAllInfo->repTheme = true;
-                        $viewAllInfo->idRepTheme = $idTheme;
-                    } else {
+                //Проверка на повторяемость темы:
+                $idTheme = $objThemeModel->actRepTheme($_POST['titleTheme']);
 
-                        //Создание необходимых переменных
-                        $arr = $this->getCheckVal([$_POST['text'], $_POST['titleTheme']]);
-                        $text = $arr[0];
-                        $titleTheme = $arr[1];
+                if (!empty($idTheme)) {
+                    throw new ForUserErr("".$this->viewErrDataUserTheme(2, $idTheme)."");
+                } else {
 
-                        $login = $_SESSION['login'];
-                        $avatar = $_SESSION['avatar'];
+                    //Создание необходимых переменных
+                    $arr = $this->getCheckVal([$_POST['text'], $_POST['titleTheme']]);
+                    $text = $arr[0];
+                    $titleTheme = $arr[1];
 
-
-                        //Обработка BB текста сообщения:
-                        $text = $this->actText($text);
-
-                        //Добавление новой темы:
-                        $objThemeModel->addNewTheme($titleTheme, $login);
-
-                        //Определение ID новой темы:
-                        $idNewTheme = $objThemeModel->getNewThemeID();
+                    $login = $_SESSION['login'];
+                    $avatar = $_SESSION['avatar'];
 
 
-                        //Добавление сообщения новой темы в таблицу сообщений:
-                        $objThemeModel->addMessNewTheme($idNewTheme[0]['id'], $text, $login, $avatar);
+                    //Обработка BB текста сообщения:
+                    $text = $this->actText($text);
 
-                        //Добавление свойств во View:
-                        $viewAllInfo->addSucc = true;
-                        $viewAllInfo->idNewTheme = $idNewTheme[0]['id'];
+                    //Добавление новой темы:
+                    $objThemeModel->addNewTheme($titleTheme, $login);
 
-                    }
-                } catch (ForError $e) {
-                    $viewAllInfo->Err = $e->getMessage();
+                    //Определение ID новой темы:
+                    $idNewTheme = $objThemeModel->getNewThemeID();
+
+
+                    //Добавление сообщения новой темы в таблицу сообщений:
+                    $objThemeModel->addMessNewTheme($idNewTheme[0]['id'], $text, $login, $avatar);
+
+                    //Создание маршкера ошибки повторяемой темы:
+                    throw new ForUserErr("".$this->viewErrDataUserTheme(3, $idNewTheme[0]['id'])."");
+
                 }
 
-            } else if ((empty($_POST['text']) || empty($_POST['titleTheme']) ||
-                    strlen($_POST['titleTheme']) > 120) && isset($_POST['ok'])
-            ) {
-                $viewAllInfo->noText = true;
-            }
 
+            } else if ((empty($_POST['text']) || empty($_POST['titleTheme']) ||
+                    strlen($_POST['titleTheme']) > 120) && isset($_POST['ok'])) {
+
+                throw new ForUserErr("".$this->viewErrDataUserTheme(1)."");
+            }
+        } catch (ForErrDBThemesModel $e) {
+            $viewAllInfo->Err = $e->getMessage();
+        }catch(ForUserErr $e){
+            $viewAllInfo->ErrUser = $e->getMessage();
+        }
 
                 try {
                     //Доп. расчёты для постраничной навигации:
@@ -66,7 +66,7 @@ class ThemesController
 
                     //Выборка тем с учётом постраничной навигации:
                     $varAllThemes = $objThemeModel->getAllThemes($varVarPage[0]);
-                }catch (ForError $e){
+                }catch (ForErrDBThemesModel $e){
                     $viewAllInfo->Err = $e->getMessage();
                 }
 

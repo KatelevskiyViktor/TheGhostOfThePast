@@ -1,6 +1,6 @@
 <?php
 
-class ForError
+class ForErrDBThemesModel
     extends Exception{
 
 }

@@ -35,7 +35,7 @@ $varShiftParam = $this->data['cat'];
                                     if(!empty($this->data['getInfoCat'])){
                                             echo $this->data['getInfoCat'][0]['text'];
                                     } else{
-                                            $errCatInfo = new ForError();
+                                            $errCatInfo = new ForErrDBThemesModel();
                                             echo $errCatInfo->getErrForCat(0);
                                     }
                          echo "</p>";
@@ -44,7 +44,7 @@ $varShiftParam = $this->data['cat'];
                             if(!empty($this->data['varShortInf'])){
                                 require_once __DIR__.'/../blocks/ShortInfoVidPage.php';
                             }else{
-                                $errCatInfo = new ForError();
+                                $errCatInfo = new ForErrDBThemesModel();
                                 echo $errCatInfo->getErrForCat(1);
                             }
                         }

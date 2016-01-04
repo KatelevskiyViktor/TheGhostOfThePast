@@ -1,23 +1,4 @@
-<?
-require_once __DIR__.'/bb_interpreter.php';
-if($this->noText) {
-        echo "<p class='ErrP'>При создании темы Вы забыли ввести текст заголовка или сообщения, либо количество символов к заголовке слишком велико.
-                    <input type='button' onclick='history.back()' value='Вернуться и изменить'></p>";
-}
-if($this->repTheme === true){
-        echo "<p class='ErrP'>Такая тема уже создана! Хотите посмотреть её:
-                <a class='fSizeErr' href='http://".$_SERVER['HTTP_HOST']."/satellit_forum/index.php?ctrl=Mess&act=MessOnID&id=".$this->idNewTheme."'>
-                Тема с таки же именем!</a> Если хотите поправить свою тему:
-                <input type='button' onclick='history.back()' value='Вернуться и изменить'></p>";
-
-}
-if($this->addSucc === true){
-    echo "<p class='ErrP'>Поздравляю! Тема успешно добавлена! Через несколько секунд Вы будете перенаправлены на неё.</p>
-            <meta http-equiv=refresh content=3;URL=http://".$_SERVER['HTTP_HOST']."/satellit_forum/index.php?ctrl=Mess&act=MessOnID&id="
-            .$this->idNewTheme.">";
-}
-
-?>
+<?php require_once __DIR__.'/bb_interpreter.php'; ?>
 
 <script type="text/javascript" >
     var irb_bb_path = '<?php echo IRB_BB_PATH ?>/satellit_forum/images/';

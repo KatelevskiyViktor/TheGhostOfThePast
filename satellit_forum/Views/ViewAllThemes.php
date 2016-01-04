@@ -32,6 +32,12 @@ if(!isset($_SESSION['login']))
 
 else if(isset($_SESSION['login']))
 {
+    //Блок вывода ошибок пользователя:
+    if($ErrUser = $this->ErrUser) {
+        exit("".$this->ErrUser."");
+    }
+
+
     require_once __DIR__.'/../blocks/FormNewTheme.php';
 
 }
@@ -82,29 +88,27 @@ else if(isset($_SESSION['login']))
 
            foreach(@$this->data['viewAllThemes'] as $ThemesInfo){
                         echo "
-				
-					
-					<tr>
-						<td style='width:35px;' class='short_description_theme'><p>".$ThemesInfo['id']."</p></td>
-						<td style='width:390px;max-width:390px;border:1px solid #8B9394;padding-left:20px;height:46px;' >
-						<p><a href='index.php?ctrl=Mess&act=MessOnID&id=".$ThemesInfo['id']."'>".$ThemesInfo['name_theme']."
-						</p></a>
-						
-						";
+                                <tr>
+                                    <td style='width:35px;' class='short_description_theme'><p>".$ThemesInfo['id']."</p></td>
+                                    <td style='width:390px;max-width:390px;border:1px solid #8B9394;padding-left:20px;height:46px;' >
+                                    <p><a href='index.php?ctrl=Mess&act=MessOnID&id=".$ThemesInfo['id']."'>".$ThemesInfo['name_theme']."
+                                    </p></a>
 
-                        include __DIR__.'/../blocks/ViewPNMessSmall.php';
+                                    ";
+
+                                    include __DIR__.'/../blocks/ViewPNMessSmall.php';
 
 
-                        echo "</td>
-						<td style='width:80px;' class='short_description_theme'><p class='color'>".$ThemesInfo['author']."</p></td>
-						<td style='width:72px; text-align:center;' class='short_description_theme'><p>".$ThemesInfo['TotalNumMess']."</p></td>
-						<td style='width:130px;' class='short_description_theme'>
-                                    <ul type='none' style='font:bold 10px arial,sans-serif;padding-left:0px;'>
-                                        <li style='margin-top:5px;'>автор: <label class='color'>".$ThemesInfo['LateMessAuth']."</label></li>
-                                        <li style='margin-top:5px;'>дата: <label class='color'>".$ThemesInfo['LateMessDate']."</label></li>
-                                    </ul>
-								</td>
-								</tr>
+                                    echo "</td>
+                                    <td style='width:80px;' class='short_description_theme'><p class='color'>".$ThemesInfo['author']."</p></td>
+                                    <td style='width:72px; text-align:center;' class='short_description_theme'><p>".$ThemesInfo['TotalNumMess']."</p></td>
+                                    <td style='width:130px;' class='short_description_theme'>
+                                                <ul type='none' style='font:bold 10px arial,sans-serif;padding-left:0px;'>
+                                                    <li style='margin-top:5px;'>автор: <label class='color'>".$ThemesInfo['LateMessAuth']."</label></li>
+                                                    <li style='margin-top:5px;'>дата: <label class='color'>".$ThemesInfo['LateMessDate']."</label></li>
+                                                </ul>
+                                            </td>
+                                            </tr>
 						";
                     }
 

@@ -8,7 +8,7 @@
 
 	<?php
         if(empty($this->data['sqlFoot'])) {
-            $err = new ForError();
+            $err = new ForErrDBThemesModel();
             echo $err->ErrForFoot();
         }
         else {

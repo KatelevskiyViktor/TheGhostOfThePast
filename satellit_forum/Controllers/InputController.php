@@ -47,29 +47,30 @@ class InputController
 		//Определение количества раз, ошибок ввода данных:
         $sumErrID = $objInputModel->getSumErrID($ip);
 		$sumErrID = empty($sumErrID)?0:$sumErrID[0]['col'];
+		try{
 		if($sumErrID < 3){
-			
+
 			//Создание сессии:
 			if(!empty($_POST['login']) && !empty($_POST['password'])) {
-				
+
 				//Обработка данных пользователя:
 				$arrAuth = $this->getCheckVal([$_POST['login'],$_POST['password']]);
 				$login = $arrAuth[0];
 				$password = $arrAuth[1];
-				
+
 				//Обработка пароля:
 				$procPass = $this->getProcPass($password);
-				
+
 				//Проверка пользователя:
 				$varUser = $objInputModel->getUser($login, $procPass);
-				
-				
+
+
 				if(!empty($varUser)){
-					
+
 					//Добавление в $_SESSION:
 					$this->createSess(['login' => $varUser[0]['login'],
 													'id' => $varUser[0]['id'], 'avatar' => $varUser[0]['avatar']]);
-					
+
 					//Создание cookie:
 					if($_POST['cook']){$this->setCookie(['login' => $login, 'password' => $password]);}
 
@@ -79,10 +80,10 @@ class InputController
 
 					//Создание необходимых View:
 					$objViewAllInfo->dataUserThemes = $dataUserThemes;
-	
+
 				}
 				else{
-					
+
 					if(!empty($sumErrID)){
 						//Обновление количества сделанных ошибок:
 						$objInputModel->updErrSum($ip);
@@ -91,16 +92,20 @@ class InputController
 						$objInputModel->insErrUsr($ip);
 					}
 					//Маркер ошибки ввода данных: 
-					$objViewAllInfo->ErrPlus = true;
+					throw new ErrDBInputModel($this->viewErrDataInputModel(1));
 				}
 			}else{
 				//Маркер отсутствия(при введении) логина или пароля: 
-				$objViewAllInfo->ErrNoData = true;}
-			
+				throw new ErrDBInputModel($this->viewErrDataInputModel(2));
+			}
+
 		}
 		else{
 			//Маркер блокировки пользователя:
-			$objViewAllInfo->ErrFull = true;}
+			throw new ErrDBInputModel($this->viewErrDataInputModel(3));}
+		}catch(ErrDBInputModel $e){
+			!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Закончить с ошбками в inputModel + поправить синтаксис в themeModel
+		}
 
 
         //Создание необходимых свойств View:

@@ -21,9 +21,9 @@ class SupLibAllErr
 
     public function viewErrDataInputModel($errNum){
         switch($errNum){
-            case 1:return "<p class='ErrP'>Такой комбинации логина и пароля не существует</p>";
+            case 1:return "<p class='ErrP'>Такой комбинации логина и пароля не существует.</p>";
 
-            case 2:return "<p class='ErrP'>Вы не ввели логин или пароль.Попробуйте ещё раз</p>";
+            case 2:return "<p class='ErrP'>Вы не ввели логин или пароль. Попробуйте ещё раз.</p>";
 
             case 3:return "<p class='ErrP'>Вы набрали логин и пароль неверно 3 раза. Подождите 15 мин до следующей попытки.</p>";
 

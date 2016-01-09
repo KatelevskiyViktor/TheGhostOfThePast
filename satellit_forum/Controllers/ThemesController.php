@@ -51,7 +51,7 @@ class ThemesController
             } else if ((empty($_POST['text']) || empty($_POST['titleTheme']) ||
                     strlen($_POST['titleTheme']) > 120) && isset($_POST['ok'])) {
 
-                throw new ForUserErr("".$this->viewErrDataUserTheme(1)."");
+                throw new ForUserErr($this->viewErrDataUserTheme(1));
             }
         } catch (ForErrDBThemesModel $e) {
             $viewAllInfo->Err = $e->getMessage();

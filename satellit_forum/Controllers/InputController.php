@@ -104,7 +104,7 @@ class InputController
 			//Маркер блокировки пользователя:
 			throw new ErrDBInputModel($this->viewErrDataInputModel(3));}
 		}catch(ErrDBInputModel $e){
-			!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Закончить с ошбками в inputModel + поправить синтаксис в themeModel
+			$objViewAllInfo->Err = $e->getMessage();
 		}
 
 

@@ -18,22 +18,8 @@
         <?php
         //Блок вывода ошибок работы с БД и удаления маркера ошибок:
         if($Err = $this->ErrUser) {
-            exit("".$this->Err."");
+            exit($this->Err);
         }
-
-		if($this->ErrFull)
-			{
-				echo "<p class='ErrP'>Вы набрали логин и пароль неверно 3 раза. Подождите 15 мин до следующей попытки.</p>";
-			}
-		if($this->ErrNoData)
-				{
-					echo "<p class='ErrP'>Вы не ввели логин или пароль.Попробуйте ещё раз</p>";
-
-				}
-		if($this->ErrPlus){
-			echo "<p class='ErrP'>Такой комбинации логина и пароля не существует</p>";
-		}
-		
 
            echo "<center>
                         <form id='inputForm' method='post' action='index.php?ctrl=Input&act=InputUser'>

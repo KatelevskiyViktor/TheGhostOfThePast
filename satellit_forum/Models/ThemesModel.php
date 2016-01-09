@@ -28,8 +28,6 @@ class ThemesModel
 
                 if(empty($res))throw new ForErrDBThemesModel('Ошибка! Метод addNewTheme() в
                                            ThemesModel не смог добавить данные в базу.');
-
-            return $res;
         }
 
         public function getNewThemeID(){
@@ -39,12 +37,7 @@ class ThemesModel
                                            ThemesModel не смог получить данные из базы.');
 
             return $res;
-<<<<<<< HEAD
-
-=======
         }
-        
->>>>>>> 83a9c6a4f5aa514c32750cd4bb0e9bca697549ee
         public function addMessNewTheme($idNewTheme, $message, $login, $avatar){
                 $res = $this->addUpdDel("INSERT INTO messages(themeID, message, author, date, avatar)
                                                   VALUES(:idNewTheme, :message, :login, NOW(), :avatar)",
@@ -53,8 +46,6 @@ class ThemesModel
 
                 if(empty($res))throw new ForErrDBThemesModel('Ошибка! Метод addMessNewTheme() в
                                            ThemesModel не смог добавить данные в базу.');
-
-            return $res;
         }
 
         public function actRepTheme($titleTheme){

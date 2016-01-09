@@ -2,7 +2,7 @@
 
 class SupLibAllErr
 {
-    public function viewErrDataUserTheme($errNum, $idActTheme){
+    public function viewErrDataUserTheme($errNum, $idActTheme = 0){
     switch($errNum){
         case 1:return "<p class='ErrP'>При создании темы Вы забыли ввести текст заголовка или сообщения, либо количество символов к заголовке слишком велико.
                     <input type='button' onclick='history.back()' value='Вернуться и изменить'></p>";

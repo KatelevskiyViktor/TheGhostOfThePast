@@ -48,63 +48,66 @@ class InputController
         $sumErrID = $objInputModel->getSumErrID($ip);
 		$sumErrID = empty($sumErrID)?0:$sumErrID[0]['col'];
 		try{
-		if($sumErrID < 3){
+			if($sumErrID < 3){
 
-			//Создание сессии:
-			if(!empty($_POST['login']) && !empty($_POST['password'])) {
+				//Создание сессии:
+				if(!empty($_POST['login']) && !empty($_POST['password'])) {
 
-				//Обработка данных пользователя:
-				$arrAuth = $this->getCheckVal([$_POST['login'],$_POST['password']]);
-				$login = $arrAuth[0];
-				$password = $arrAuth[1];
+					//Обработка данных пользователя:
+					$arrAuth = $this->getCheckVal([$_POST['login'],$_POST['password']]);
+					$login = $arrAuth[0];
+					$password = $arrAuth[1];
 
-				//Обработка пароля:
-				$procPass = $this->getProcPass($password);
+					//Обработка пароля:
+					$procPass = $this->getProcPass($password);
 
-				//Проверка пользователя:
-				$varUser = $objInputModel->getUser($login, $procPass);
+					//Проверка пользователя:
+					$varUser = $objInputModel->getUser($login, $procPass);
 
 
-				if(!empty($varUser)){
+					if(!empty($varUser)){
 
-					//Добавление в $_SESSION:
-					$this->createSess(['login' => $varUser[0]['login'],
-													'id' => $varUser[0]['id'], 'avatar' => $varUser[0]['avatar']]);
+						//Добавление в $_SESSION:
+						$this->createSess(['login' => $varUser[0]['login'],
+														'id' => $varUser[0]['id'], 'avatar' => $varUser[0]['avatar']]);
 
-					//Создание cookie:
-					if($_POST['cook']){$this->setCookie(['login' => $login, 'password' => $password]);}
+						//Создание cookie:
+						if($_POST['cook']){$this->setCookie(['login' => $login, 'password' => $password]);}
 
-					//ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ О УЧАСТИИ ПОЛЬЗОВАТЕЛЯ В ТЕМАХ:
-					//Дополнительные расчёты для постраничной навигации:
-					$dataUserThemes = static::getUserData();
+						//ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ О УЧАСТИИ ПОЛЬЗОВАТЕЛЯ В ТЕМАХ:
+						//Дополнительные расчёты для постраничной навигации:
+						$dataUserThemes = static::getUserData();
 
-					//Создание необходимых View:
-					$objViewAllInfo->dataUserThemes = $dataUserThemes;
+						//Создание необходимых View:
+						$objViewAllInfo->dataUserThemes = $dataUserThemes;
 
-				}
-				else{
-
-					if(!empty($sumErrID)){
-						//Обновление количества сделанных ошибок:
-						$objInputModel->updErrSum($ip);
-					}else{
-						//Создание 1-ой ошибки ввода данных:
-						$objInputModel->insErrUsr($ip);
 					}
-					//Маркер ошибки ввода данных: 
-					throw new ErrDBInputModel($this->viewErrDataInputModel(1));
-				}
-			}else{
-				//Маркер отсутствия(при введении) логина или пароля: 
-				throw new ErrDBInputModel($this->viewErrDataInputModel(2));
-			}
+					else{
 
-		}
-		else{
-			//Маркер блокировки пользователя:
-			throw new ErrDBInputModel($this->viewErrDataInputModel(3));}
-		}catch(ErrDBInputModel $e){
-			$objViewAllInfo->Err = $e->getMessage();
+						if(!empty($sumErrID)){
+							//Обновление количества сделанных ошибок:
+							$objInputModel->updErrSum($ip);
+						}else{
+							//Создание 1-ой ошибки ввода данных:
+							$objInputModel->insErrUsr($ip);
+						}
+						//Маркер ошибки ввода данных:
+						throw new ErrUser($this->viewErrDataUserInput(1));
+					}
+				}else{
+					//Маркер отсутствия(при введении) логина или пароля:
+					throw new ErrUser($this->viewErrDataUserInput(2));
+				}
+
+			}
+			else{
+				//Маркер блокировки пользователя:
+				throw new ErrUser($this->viewErrDataUserInput(3));
+			}
+		}catch(ErrUser $e){
+			$objViewAllInfo->ErrUser = $e->getMessage();
+		}catch(ErrDBModel $e){
+			$objViewAllInfo->ErrDBModel = $e->getMessage();
 		}
 
 

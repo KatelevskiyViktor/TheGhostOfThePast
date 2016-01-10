@@ -45,7 +45,7 @@
                                 Просмотров:</span>" . $this->data['varVidID'][0]['view'] . "</p>
                     </div>";
         }else{
-            $objErrVidOnId = new ForErrDBThemesModel();
+            $objErrVidOnId = new ErrDBModel();
             echo $objErrVidOnId->getErrForVidOnId();
         }
 ?>

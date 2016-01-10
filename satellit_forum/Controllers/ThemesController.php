@@ -17,7 +17,7 @@ class ThemesController
                 $idTheme = $objThemeModel->actRepTheme($_POST['titleTheme']);
 
                 if (!empty($idTheme)) {
-                    throw new ForUserErr("".$this->viewErrDataUserTheme(2, $idTheme)."");
+                    throw new ErrUser($this->viewErrDataUserTheme(2, $idTheme));
                 } else {
 
                     //Создание необходимых переменных
@@ -43,7 +43,7 @@ class ThemesController
                     $objThemeModel->addMessNewTheme($idNewTheme[0]['id'], $text, $login, $avatar);
 
                     //Создание маршкера ошибки повторяемой темы:
-                    throw new ForUserErr("".$this->viewErrDataUserTheme(3, $idNewTheme[0]['id'])."");
+                    throw new ErrUser("".$this->viewErrDataUserTheme(3, $idNewTheme[0]['id'])."");
 
                 }
 
@@ -51,11 +51,11 @@ class ThemesController
             } else if ((empty($_POST['text']) || empty($_POST['titleTheme']) ||
                     strlen($_POST['titleTheme']) > 120) && isset($_POST['ok'])) {
 
-                throw new ForUserErr($this->viewErrDataUserTheme(1));
+                throw new ErrUser($this->viewErrDataUserTheme(1));
             }
-        } catch (ForErrDBThemesModel $e) {
+        } catch (ErrDBModel $e) {
             $viewAllInfo->Err = $e->getMessage();
-        }catch(ForUserErr $e){
+        }catch(ErrUser $e){
             $viewAllInfo->ErrUser = $e->getMessage();
         }
 
@@ -66,7 +66,7 @@ class ThemesController
 
                     //Выборка тем с учётом постраничной навигации:
                     $varAllThemes = $objThemeModel->getAllThemes($varVarPage[0]);
-                }catch (ForErrDBThemesModel $e){
+                }catch (ErrDBModel $e){
                     $viewAllInfo->Err = $e->getMessage();
                 }
 

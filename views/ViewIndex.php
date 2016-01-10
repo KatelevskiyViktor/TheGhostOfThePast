@@ -1,7 +1,7 @@
 <?php
     if(empty($this->data['resIndSet']))
     {
-        $errInd = new ForErrDBThemesModel();
+        $errInd = new ErrDBModel();
         echo $errInd->ErrForNav(0);
     }
 ?>
@@ -45,7 +45,7 @@
                              data-yashareQuickServices='vkontakte,facebook,twitter,odnoklassniki,moimir,gplus'
                              data-yashareTheme='counter'></div>";
                         }else{
-                            $errResInd = new ForErrDBThemesModel();
+                            $errResInd = new ErrDBModel();
                             echo $errResInd->ErrForInd(1);
                         }
 

@@ -32,7 +32,7 @@ $varShiftParam = $this->data['title'];
                 require_once __DIR__.'/../blocks/ShortInfoVidPage.php';
             }
         else{
-            $errDate = new ForErrDBThemesModel();
+            $errDate = new ErrDBModel();
             echo $errDate->getErrForDate();
         }
         ?>

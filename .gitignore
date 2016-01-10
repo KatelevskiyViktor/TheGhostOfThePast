@@ -1,3 +1,6 @@
-/SettingsNote++/
-/.idea/
+/.idea/*
+/files/*
+img/*
+images/*
+avatars/*
 

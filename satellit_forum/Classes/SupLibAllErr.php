@@ -19,7 +19,7 @@ class SupLibAllErr
     }
 }
 
-    public function viewErrDataInputModel($errNum){
+    public function viewErrDataUserInput($errNum){
         switch($errNum){
             case 1:return "<p class='ErrP'>Такой комбинации логина и пароля не существует.</p>";
 
@@ -28,5 +28,9 @@ class SupLibAllErr
             case 3:return "<p class='ErrP'>Вы набрали логин и пароль неверно 3 раза. Подождите 15 мин до следующей попытки.</p>";
 
         }
+    }
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Разобраться с постраничной навигацией в ViewUserData.php + закончить с оптимизацией ошибок(класс ниже throwUserErr($str))
+    public function throwUserErr($str){
+        throw new ErrUser($this->viewErrDataUserInput(3));
     }
 }

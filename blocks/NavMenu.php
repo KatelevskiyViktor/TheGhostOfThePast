@@ -4,7 +4,7 @@
 					<ul style="margin-top:20px;" class="cat_menu">
                       <?php
                       if(empty($this->data['sqlNav'][0])){
-                          $errNav = new ForErrDBThemesModel();
+                          $errNav = new ErrDBModel();
                           echo $errNav->ErrForNav(0);
                       }
                       else{
@@ -19,7 +19,7 @@
 				<ul class="cat_menu2">
 					<?php
                     if(empty($this->data['sqlNav'][1])){
-                        $errNav = new ForErrDBThemesModel();
+                        $errNav = new ErrDBModel();
                         echo $errNav->ErrForNav(1);
                     }
                     else {
@@ -33,7 +33,7 @@
 				<ul class="cat_menu2">
 					<?php
                     if(empty($this->data['sqlNav'][2])){
-                        $errNav = new ForErrDBThemesModel();
+                        $errNav = new ErrDBModel();
                         echo $errNav->ErrForNav(2);
                     }
                     else {
@@ -47,7 +47,7 @@
 				<ul class="cat_menu2">
                     <?php
                     if(empty($this->data['sqlNav'][3])){
-                        $errNav = new ForErrDBThemesModel();
+                        $errNav = new ErrDBModel();
                         echo $errNav->ErrForNav(3);
                     }
                     else {

@@ -34,7 +34,7 @@ else if(isset($_SESSION['login']))
 {
     //Блок вывода ошибок пользователя:
     if($ErrUser = $this->ErrUser) {
-        exit("".$this->ErrUser."");
+        exit($this->ErrUser);
     }
 
 
@@ -120,7 +120,7 @@ else if(isset($_SESSION['login']))
         <img src='img/bg_content_buttom_image.png'>
 
        <?php //Постраничная навигация для тем
-        include('blocks/ViewPageNav.php');?>
+        include __DIR__.'/../blocks/ViewPageNav.php';?>
 
 
 

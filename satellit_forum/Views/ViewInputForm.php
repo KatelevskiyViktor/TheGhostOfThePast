@@ -17,8 +17,8 @@
     <div id="content">
         <?php
         //Блок вывода ошибок работы с БД и удаления маркера ошибок:
-        if($Err = $this->ErrUser) {
-            exit($this->Err);
+        if($ErrDB = $this->ErrUser) {
+            exit($this->ErrUser);
         }
 
            echo "<center>

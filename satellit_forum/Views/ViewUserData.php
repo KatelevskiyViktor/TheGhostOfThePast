@@ -23,23 +23,6 @@
 
 	<div id='bg_content_center_image'>
 		<table style='width:900px;'>";
-        //Выведение тем в которых участвовал пользователь, начиная с последней.
-        // $result000 = mysql_query("SELECT DISTINCT themeID FROM messages WHERE author='$login'");
-        // $myrow00 = mysql_num_rows($result000);
-        // if(!$result000)
-        // {
-            // include('blocks/error.php');
-        // }
-        // $counter_pages = ceil($myrow00/40);
-        // if($page > 0 && $page <= $counter_pages)
-        // {
-            // $var =($page-1)*40;
-
-        // }
-        // else{
-            // $var=0;
-            // $page=1;
-        // }
 
         foreach($this->dataUserThemes as $key){
 
@@ -49,7 +32,7 @@
 						<td style='width:390px;max-width:390px;border:1px solid #8B9394;padding-left:20px;height:46px;' ><p><a href='index.php?ctrl=Mess&act=MessOnID&id=".$key[0]['id']."'>".$key[0]['name_theme']."</p></a>";
 
 
-            // include('blocks/ViewPNMessSmall.php');
+			include __DIR__.'/../blocks/ViewPNMessSmall.php';
 
 
             echo "</td>

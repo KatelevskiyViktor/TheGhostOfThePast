@@ -45,20 +45,16 @@
 								</td>
 								</tr>
 						";}
-        // }
-        // while($myrow000 = mysql_fetch_array($result00));
-        // }
-        // else
-            // echo "<p style='margin-left:33px;font-size:18px;color:#900000;'>Тем с вашим участие пока нет!</p>";
+
         ?>
         </table>
     </div>
 	<img src='img/bg_content_buttom_image.png'>
 
-<?//include('blocks/page_nav_theme.php');
+<?include __DIR__.'/../blocks/ViewPageNav.php';?>
 
 
-?>
+
 
 
 </div>

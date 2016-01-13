@@ -6,6 +6,7 @@ class InputController
 
         //Создание необходимых объектов:
         $objViewAllInfo = new View();
+		$objInputModel = new InputModel();
 
 
         //Проверка наличия Cookie для формы:
@@ -18,9 +19,16 @@ class InputController
 		if(!empty($_SESSION['login'])){
 			//ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ О УЧАСТИИ ПОЛЬЗОВАТЕЛЯ В ТЕМАХ:
 			//Дополнительные расчёты для постраничной навигации:
+			$varPage = intval($_GET['page']);
+			$varSumThemes = $objInputModel->getIDThemesUser();
+			$varVarPage = $this->getVarPage($varPage, $varSumThemes[0]["COUNT(DISTINCT themeID)"]);
 			$dataUserThemes = static::getUserData();
 
 			//Создание необходимых View:
+			$objViewAllInfo->ctrl = 'Themes';
+			$objViewAllInfo->act = 'AllThemes';
+			$objViewAllInfo->page = $varVarPage[1];
+			$objViewAllInfo->sumData = $varSumThemes[0]["COUNT(DISTINCT themeID)"];
 			$objViewAllInfo->dataUserThemes = $dataUserThemes;
 		}
 

@@ -29,7 +29,7 @@ class SupLibAllErr
 
         }
     }
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Разобраться с постраничной навигацией в ViewUserData.php + закончить с оптимизацией ошибок(класс ниже throwUserErr($str))
+   // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Разобраться с постраничной навигацией в ViewUserData.php + закончить с оптимизацией ошибок(класс ниже throwUserErr($str))
     public function throwUserErr($str){
         throw new ErrUser($this->viewErrDataUserInput(3));
     }

@@ -3,10 +3,10 @@ class InputController
 	extends SupLibInput{
 
     public function actionInputForm(){
+		//Создание необходимых объектов:
+		$objViewAllInfo = new View();
 
-        //Создание необходимых объектов:
-        $objViewAllInfo = new View();
-		$objInputModel = new InputModel();
+!!!!!!!!!!!!!!!!!!!!!!!Проверить actPN()
 
 
         //Проверка наличия Cookie для формы:
@@ -18,18 +18,7 @@ class InputController
 
 		if(!empty($_SESSION['login'])){
 			//ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ О УЧАСТИИ ПОЛЬЗОВАТЕЛЯ В ТЕМАХ:
-			//Дополнительные расчёты для постраничной навигации:
-			$varPage = intval($_GET['page']);
-			$varSumThemes = $objInputModel->getIDThemesUser();
-			$varVarPage = $this->getVarPage($varPage, $varSumThemes[0]["COUNT(DISTINCT themeID)"]);
-			$dataUserThemes = static::getUserData();
-
-			//Создание необходимых View:
-			$objViewAllInfo->ctrl = 'Themes';
-			$objViewAllInfo->act = 'AllThemes';
-			$objViewAllInfo->page = $varVarPage[1];
-			$objViewAllInfo->sumData = $varSumThemes[0]["COUNT(DISTINCT themeID)"];
-			$objViewAllInfo->dataUserThemes = $dataUserThemes;
+			$this->actPN();
 		}
 
 
@@ -83,11 +72,7 @@ class InputController
 						if($_POST['cook']){$this->setCookie(['login' => $login, 'password' => $password]);}
 
 						//ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ О УЧАСТИИ ПОЛЬЗОВАТЕЛЯ В ТЕМАХ:
-						//Дополнительные расчёты для постраничной навигации:
-						$dataUserThemes = static::getUserData();
-
-						//Создание необходимых View:
-						$objViewAllInfo->dataUserThemes = $dataUserThemes;
+						$this->actPN();
 
 					}
 					else{

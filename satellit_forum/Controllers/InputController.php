@@ -6,9 +6,6 @@ class InputController
 		//Создание необходимых объектов:
 		$objViewAllInfo = new View();
 
-!!!!!!!!!!!!!!!!!!!!!!!Проверить actPN()
-
-
         //Проверка наличия Cookie для формы:
         if(!empty($_COOKIE['login']) && !empty($_COOKIE['password'])){
                 $objViewAllInfo->login = $_COOKIE['login'];
@@ -18,8 +15,16 @@ class InputController
 
 		if(!empty($_SESSION['login'])){
 			//ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ О УЧАСТИИ ПОЛЬЗОВАТЕЛЯ В ТЕМАХ:
-			$this->actPN();
+			$data = $this->actPN();
+
+			//Создание необходимых View:
+			$objViewAllInfo->ctrl = 'Input';
+			$objViewAllInfo->act = 'InputUser';
+			$objViewAllInfo->page = $data[0];
+			$objViewAllInfo->sumData = $data[1];
+			$objViewAllInfo->dataUserThemes = $data[2];
 		}
+
 
 
         //Вывод HTML:
@@ -72,7 +77,14 @@ class InputController
 						if($_POST['cook']){$this->setCookie(['login' => $login, 'password' => $password]);}
 
 						//ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ О УЧАСТИИ ПОЛЬЗОВАТЕЛЯ В ТЕМАХ:
-						$this->actPN();
+						$data = $this->actPN();
+
+						//Создание необходимых View:
+						$objViewAllInfo->ctrl = 'Input';
+						$objViewAllInfo->act = 'InputUser';
+						$objViewAllInfo->page = $data[0];
+						$objViewAllInfo->sumData = $data[1];
+						$objViewAllInfo->dataUserThemes = $data[2];
 
 					}
 					else{

@@ -24,23 +24,32 @@
 	<div id='bg_content_center_image'>
 		<table style='width:900px;'>";
 
-        foreach($this->dataUserThemes as $key){
+		//Создание необходимых переменных для ПН:
+		$sumData = $this->sumData;
+		$page = $this->page;
+		$ctrl = $this->ctrl;
+		$act = $this->act;
+!!!!!!!!!!!!!!!!!!!!!!!!!Закончить с постраничной навигациейв viewuserdata.php('отображает ПН но при переходе не берёт из базы инфо')
+
+
+		foreach($this->dataUserThemes as $ThemesInfo){
 
             echo "
 					<tr>
-						<td style='width:35px;' class='short_description_theme'><p>".$key[0]['id']."</p></td>
-						<td style='width:390px;max-width:390px;border:1px solid #8B9394;padding-left:20px;height:46px;' ><p><a href='index.php?ctrl=Mess&act=MessOnID&id=".$key[0]['id']."'>".$key[0]['name_theme']."</p></a>";
+						<td style='width:35px;' class='short_description_theme'><p>".$ThemesInfo[0]['id']."</p></td>
+						<td style='width:390px;max-width:390px;border:1px solid #8B9394;padding-left:20px;height:46px;' ><p><a href='index.php?ctrl=Mess&act=MessOnID&id=".$ThemesInfo[0]['id']."'>".$ThemesInfo[0]['name_theme']."</p></a>";
 
-
+			$TotalNumMess = $ThemesInfo[0]['TotalNumMess'];
+			$themeID = $ThemesInfo[0]['id'];
 			include __DIR__.'/../blocks/ViewPNMessSmall.php';
 
 
             echo "</td>
-						<td style='width:80px;' class='short_description_theme'><p style='color:#900000;'>".$key[0]['author']."</p></td>
-						<td style='width:72px; text-align:center;' class='short_description_theme'><p>".$key[0]['TotalNumMess']."</p></td>
+						<td style='width:80px;' class='short_description_theme'><p style='color:#900000;'>".$ThemesInfo[0]['author']."</p></td>
+						<td style='width:72px; text-align:center;' class='short_description_theme'><p>".$ThemesInfo[0]['TotalNumMess']."</p></td>
 						<td style='width:130px;' class='short_description_theme'><ul type='none' style='font:bold 10px arial,sans-serif;padding-left:0px;'>
-																					<li style='margin-top:5px;'>автор: <label style='color:#900000;'>".$key[0]['LateMessAuth']."</label></li>
-																					<li style='margin-top:5px;'>дата: <label style='color:#900000;'>".$key[0]['LateMessDate']."</label></li>
+																					<li style='margin-top:5px;'>автор: <label style='color:#900000;'>".$ThemesInfo[0]['LateMessAuth']."</label></li>
+																					<li style='margin-top:5px;'>дата: <label style='color:#900000;'>".$ThemesInfo[0]['LateMessDate']."</label></li>
 																				</ul>
 								</td>
 								</tr>
@@ -51,7 +60,7 @@
     </div>
 	<img src='img/bg_content_buttom_image.png'>
 
-<?include __DIR__.'/../blocks/ViewPageNav.php';?>
+<?php include __DIR__.'/../blocks/ViewPageNav.php';?>
 
 
 

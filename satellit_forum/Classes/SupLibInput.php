@@ -14,7 +14,6 @@ class SupLibInput
         }
     protected function actPN(){
         //Создание необходимых объектов:
-        $objViewAllInfo = new View();
         $objInputModel = new InputModel();
 
         //Дополнительные расчёты для постраничной навигации:
@@ -23,11 +22,7 @@ class SupLibInput
         $varVarPage = $this->getVarPage($varPage, $varSumThemes[0]["COUNT(DISTINCT themeID)"]);
         $dataUserThemes = static::getUserData($varVarPage[0]);
 
-        //Создание необходимых View:
-        $objViewAllInfo->ctrl = 'Themes';
-        $objViewAllInfo->act = 'AllThemes';
-        $objViewAllInfo->page = $varVarPage[1];
-        $objViewAllInfo->sumData = $varSumThemes[0]["COUNT(DISTINCT themeID)"];
-        $objViewAllInfo->dataUserThemes = $dataUserThemes;
+        return array($varVarPage[1], $varSumThemes[0]["COUNT(DISTINCT themeID)"], $dataUserThemes);
     }
-    }
+
+}

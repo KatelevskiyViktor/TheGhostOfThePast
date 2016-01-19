@@ -86,7 +86,8 @@ else if(isset($_SESSION['login']))
                 $act = $this->act;
 
 
-           foreach(@$this->data['viewAllThemes'] as $ThemesInfo){
+
+           foreach($this->data['viewAllThemes'] as $ThemesInfo){
                         echo "
                                 <tr>
                                     <td style='width:35px;' class='short_description_theme'><p>".$ThemesInfo['id']."</p></td>
@@ -95,7 +96,8 @@ else if(isset($_SESSION['login']))
                                     </p></a>
 
                                     ";
-
+                                    $TotalNumMess = $ThemesInfo['TotalNumMess'];
+                                    $themeID = $ThemesInfo['id'];
                                     include __DIR__.'/../blocks/ViewPNMessSmall.php';
 
 

@@ -46,12 +46,13 @@ class InputModel
 					if(!$newArr[$i])throw new ErrDBModel('Ошибка! Метод getUserThemes() в
                                            InputModel не смог получить данные из базы.') ;
 				}
+
 			return $newArr; 
 		}
 		
 		
 		public function getIDThemes($var){
-			$res =  $this->getAnyDataOnParam('SELECT DISTINCT themeID FROM messages WHERE author=:login ORDER BY date DESC LIMIT '.$var.', 20',
+			$res =  $this->getAnyDataOnParam('SELECT DISTINCT themeID FROM messages WHERE author=:login ORDER BY date DESC LIMIT '.$var.', 2',
 												[':login' => $_SESSION['login']]);
 			if(!$res)throw new ErrDBModel('Ошибка! Метод getIDThemesUser() в
                                            InputModel не смог получить данные из базы.') ;

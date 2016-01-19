@@ -1,7 +1,7 @@
 <?php
 
 //Вывод постраничной навигации
-if($sumData > 20 && $page <= (ceil($sumData/20)) && $page > 0)
+if($sumData > 2 && $page <= (ceil($sumData/2)) && $page > 0)
 {
 
     //Формирование переменных строки ссылок
@@ -34,7 +34,7 @@ if($sumData > 20 && $page <= (ceil($sumData/20)) && $page > 0)
                     echo $strA.$urlPage.$previous."'><<".$strAEndTeg;
                 }
 
-                $j=ceil($sumData/20);
+                $j=ceil($sumData/2);
                 $i=1;
                 while($i <= $j)
                 {

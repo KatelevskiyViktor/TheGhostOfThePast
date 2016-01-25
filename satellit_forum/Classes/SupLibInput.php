@@ -19,7 +19,8 @@ class SupLibInput
         //Дополнительные расчёты для постраничной навигации:
         $varPage = intval($_GET['page']);
         $varSumThemes = $objInputModel->getIDThemesUser();
-        $varVarPage = $this->getVarPage($varPage, $varSumThemes[0]["COUNT(DISTINCT themeID)"]);
+        $varVarPage = $this->getVarPage($varPage, +$varSumThemes[0]["COUNT(DISTINCT themeID)"]);
+
         $dataUserThemes = static::getUserData($varVarPage[0]);
 
         return array($varVarPage[1], $varSumThemes[0]["COUNT(DISTINCT themeID)"], $dataUserThemes);

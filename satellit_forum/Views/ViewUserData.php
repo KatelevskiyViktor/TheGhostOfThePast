@@ -29,7 +29,7 @@
 		$page = $this->page;
 		$ctrl = $this->ctrl;
 		$act = $this->act;
-!!!!!!!!!!!!!!!!!!!!!!!!!Закончить с постраничной навигациейв viewuserdata.php('отображает ПН но при переходе не берёт из базы инфо')
+
 
 
 		foreach($this->dataUserThemes as $ThemesInfo){

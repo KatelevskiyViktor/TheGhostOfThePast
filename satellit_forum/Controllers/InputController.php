@@ -19,7 +19,7 @@ class InputController
 
 			//Создание необходимых View:
 			$objViewAllInfo->ctrl = 'Input';
-			$objViewAllInfo->act = 'InputUser';
+			$objViewAllInfo->act = 'InputForm';
 			$objViewAllInfo->page = $data[0];
 			$objViewAllInfo->sumData = $data[1];
 			$objViewAllInfo->dataUserThemes = $data[2];

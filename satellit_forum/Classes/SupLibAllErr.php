@@ -21,11 +21,11 @@ class SupLibAllErr
 
     public function viewErrDataUserInput($errNum){
         switch($errNum){
-            case 1:return "<p class='ErrP'>Такой комбинации логина и пароля не существует.</p>";
+            case 1:return "<p class='ErrP'>Такой комбинации логина и пароля не существует. <input type='button' onclick='history.back()' value='Вернуться и изменить'></p>";
 
-            case 2:return "<p class='ErrP'>Вы не ввели логин или пароль. Попробуйте ещё раз.</p>";
+            case 2:return "<p class='ErrP'>Вы не ввели логин или пароль. Попробуйте ещё раз. <input type='button' onclick='history.back()' value='Вернуться и изменить'></p>";
 
-            case 3:return "<p class='ErrP'>Вы набрали логин и пароль неверно 3 раза. Подождите 15 мин до следующей попытки.</p>";
+            case 3:return "<p class='ErrP'>Вы набрали логин и пароль неверно 3 раза. Подождите 15 мин до следующей попытки. <input type='button' onclick='history.back()' value='Вернуться и изменить'></p>";
 
         }
     }

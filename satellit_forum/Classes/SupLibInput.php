@@ -1,7 +1,7 @@
 <?php
 class SupLibInput
     extends GenSupLib{
-        protected static function getUserData($var){
+       private function getUserData($var){
             $objInputModel = new InputModel();
 
             //Запрос id тем в которых участвовал пользователь:
@@ -21,7 +21,7 @@ class SupLibInput
         $varSumThemes = $objInputModel->getIDThemesUser();
         $varVarPage = $this->getVarPage($varPage, +$varSumThemes[0]["COUNT(DISTINCT themeID)"]);
 
-        $dataUserThemes = static::getUserData($varVarPage[0]);
+        $dataUserThemes = $this->getUserData($varVarPage[0]);
 
         return array($varVarPage[1], $varSumThemes[0]["COUNT(DISTINCT themeID)"], $dataUserThemes);
     }

@@ -17,9 +17,9 @@
 
         echo "<div id='input_content_bg'><p>Вы вошли на сайт как:<br><span style='color:#900000;'>"
 				.$_SESSION["login"]."</span>(<a href='index.php?ctrl=Input&act=InputForm&exit=1'>Выйти</a>)</p>
-	<p>&nbspВаш аватар:<br><img style='border:2px solid; ' src='".$_SESSION['avatar']."'></p></div>
-	<p style='margin-left:33px;font-size:18px'>Темы в которых Вы участвовали:</p>
-	<img src='img/bg_content_top_image.png'>
+				<p>&nbspВаш аватар:<br><img style='border:2px solid; ' src='".$_SESSION['avatar']."'></p></div>
+				<p style='margin-left:33px;font-size:18px'>Темы в которых Вы участвовали:</p>
+				<img src='img/bg_content_top_image.png'>
 
 	<div id='bg_content_center_image'>
 		<table style='width:900px;'>";

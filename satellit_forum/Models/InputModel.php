@@ -13,11 +13,8 @@ class InputModel
         }
 
         public function getUser($login, $password){
-            $res = $this->getAnyDataOnParam('SELECT * FROM users WHERE login = :login AND password = :password',
-                                                [':login' => $login, ':password' => $password]);
-			if(!$res)throw new ErrDBModel('Ошибка! Метод getUser() в
-                                           InputModel не смог получить данные из базы.') ;
-			return $res;
+			return $this->getAnyDataOnParam('SELECT * FROM users WHERE login = :login AND password = :password',
+				[':login' => $login, ':password' => $password]);
         }
 
 		public function updErrSum($ip){

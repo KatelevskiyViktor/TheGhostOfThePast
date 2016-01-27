@@ -66,7 +66,6 @@ class InputController
 					//Проверка пользователя:
 					$varUser = $objInputModel->getUser($login, $procPass);
 
-
 					if(!empty($varUser)){
 
 						//Добавление в $_SESSION:

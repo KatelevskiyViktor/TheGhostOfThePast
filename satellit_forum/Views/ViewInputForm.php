@@ -18,7 +18,7 @@
         <?php
         //Блок вывода ошибок работы с БД и удаления маркера ошибок:
         if($ErrDB = $this->ErrUser) {
-            exit($this->ErrUser);
+           echo $this->ErrUser;
         }
 
            echo "<center>

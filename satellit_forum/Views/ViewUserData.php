@@ -14,7 +14,9 @@
 
     <div id="content">
         <?php
-
+		if($ErrDBModel = $this->ErrDBModel) {
+			 exit($ErrDBModel);
+		}
         echo "<div id='input_content_bg'><p>Вы вошли на сайт как:<br><span style='color:#900000;'>"
 				.$_SESSION["login"]."</span>(<a href='index.php?ctrl=Input&act=InputForm&exit=1'>Выйти</a>)</p>
 				<p>&nbspВаш аватар:<br><img style='border:2px solid; ' src='".$_SESSION['avatar']."'></p></div>

@@ -18,7 +18,7 @@ class InputModel
         }
 
 		public function updErrSum($ip){
-			$res = $this->addUpdDel('UPDATE ip SET col=col+1, date = NOW() WHERE ip = :ip', [':ip' => $ip]);
+			$res = $this->addUpdDel('UPATE ip SET col=col+1, date = NOW() WHERE ip = :ip', [':ip' => $ip]);
 			if(!$res)throw new ErrDBModel('Ошибка! Метод addUpdDel в
                                            InputModel не смог получить данные из базы.') ;
 		}

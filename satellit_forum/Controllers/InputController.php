@@ -39,10 +39,12 @@ class InputController
 
         $objInputModel = new InputModel();
         $objViewAllInfo = new View();
-		
-		//Удаление всех записей старше 15 минут из таблицы Users:
-        $objInputModel->actDel();
-		
+		try{
+			//Удаление всех записей старше 15 минут из таблицы Users:
+			$objInputModel->actDel();
+		}catch(ErrDBModel $e){
+			$objViewAllInfo->ErrDBModel = $e->getMessage();
+		}
 		//Получение IP клиента:
 		$ip = empty(getenv("HTTP_X_FORWARDED_FOR"))? getenv("REMOTE_ADDR"):getenv("HTTP_X_FORWARDED_FOR");
 	

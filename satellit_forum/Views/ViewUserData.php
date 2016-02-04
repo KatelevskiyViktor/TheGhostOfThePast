@@ -15,7 +15,7 @@
     <div id="content">
         <?php
 		if($ErrDBModel = $this->ErrDBModel) {
-			 exit($ErrDBModel);
+			 exit("<p class='ErrP'>".$ErrDBModel."</p>");
 		}
         echo "<div id='input_content_bg'><p>Вы вошли на сайт как:<br><span style='color:#900000;'>"
 				.$_SESSION["login"]."</span>(<a href='index.php?ctrl=Input&act=InputForm&exit=1'>Выйти</a>)</p>

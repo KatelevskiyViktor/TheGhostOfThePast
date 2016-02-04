@@ -90,13 +90,14 @@ class InputController
 					}
 					else{
 
-						if(!empty($sumErrID)){
-							//Обновление количества сделанных ошибок:
-							$objInputModel->updErrSum($ip);
-						}else{
-							//Создание 1-ой ошибки ввода данных:
-							$objInputModel->insErrUsr($ip);
-						}
+							if (!empty($sumErrID)) {
+								//Обновление количества сделанных ошибок:
+								$objInputModel->updErrSum($ip);
+							} else {
+								//Создание 1-ой ошибки ввода данных:
+								$objInputModel->insErrUsr($ip);
+							}
+
 						//Маркер ошибки ввода данных:
 						throw new ErrUser($this->viewErrDataUserInput(1));
 					}

@@ -20,6 +20,9 @@
         if($ErrUser = $this->ErrUser) {
            echo $ErrUser;
         }
+        if($ErrDBModel = $this->ErrDBModel) {
+            exit("<p class='ErrP'>".$ErrDBModel."</p>");
+        }
 
            echo "<center>
                         <form id='inputForm' method='post' action='index.php?ctrl=Input&act=InputUser'>

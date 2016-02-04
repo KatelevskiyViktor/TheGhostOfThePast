@@ -3,7 +3,7 @@ class InputModel
     extends AbstractModel{
 
         public function actDel(){
-			$res = $this->addUpdDel("DELETE FROM ip WHERE UNIX_TIMESTAMP()-UNIX_TIMESTAMP(date)>900");
+			$res = $this->addUpdDel("DELETE FROM ip WHERE UNIX_TIMESTAMP()-UNIX_TIMESTAMP(date)>9");
             if(!$res)throw new ErrDBModel('Ошибка! Метод actDel() в
                                            InputModel не смог получить данные из базы.') ;
         }
@@ -18,7 +18,7 @@ class InputModel
         }
 
 		public function updErrSum($ip){
-			$res = $this->addUpdDel('UPATE ip SET col=col+1, date = NOW() WHERE ip = :ip', [':ip' => $ip]);
+			$res = $this->addUpdDel('UPDATE ip SET col=col+1, date = NOW() WHERE ip = :ip', [':ip' => $ip]);
 			if(!$res)throw new ErrDBModel('Ошибка! Метод addUpdDel в
                                            InputModel не смог получить данные из базы.') ;
 		}
@@ -51,7 +51,7 @@ class InputModel
 		public function getIDThemes($var){
 			$res =  $this->getAnyDataOnParam('SELECT DISTINCT themeID FROM messages WHERE author=:login ORDER BY date DESC LIMIT '.$var.', 20',
 												[':login' => $_SESSION['login']]);
-			if(!$res)throw new ErrDBModel('Ошибка! Метод getIDThemesUser() в
+			if(!$res)throw new ErrDBModel('Ошибка! Метод getIDThemes() в
                                            InputModel не смог получить данные из базы.') ;
 			return $res;
 		}

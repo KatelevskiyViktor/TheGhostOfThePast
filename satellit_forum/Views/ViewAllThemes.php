@@ -57,7 +57,8 @@ else if(isset($_SESSION['login']))
 
             //Блок вывода ошибок работы с БД и удаления маркера ошибок:
             if($Err = $this->Err) {
-                exit("<p class='ErrP'>".$this->Err."</p>");
+                echo "<p class='ErrP'>".$this->Err."</p>".require_once __DIR__
+                exit();
             }
 
 
